@@ -3,7 +3,7 @@ const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const { userDB, seatDB } = require('./db');
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 // 메인 UI
 app.use(express.static('public'));
