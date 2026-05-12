@@ -2,65 +2,184 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>공강 녹이기</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <!-- HEADER -->
   <header>
-    <div class="logo">⏰ 공강 녹이기</div>
+    <div class="logo">공강<span class="accent">녹이기</span></div>
     <nav>
       <a href="#">홈</a>
       <a href="#">내 주변</a>
       <a href="#">이벤트</a>
-      <a href="#" id="profile">👤</a>
+      <a href="#" id="profile" class="profile-btn">👤 프로필</a>
     </nav>
+
   </header>
 
-  <section class="banner">
-    <h1>공강을 알차게 보내는 법!</h1>
-    <p>오늘 공강 시간, 알차게 보내세요!</p>
+  <!-- HERO BANNER -->
+  <section class="hero">
+    <div class="hero-img-wrap">
+      <img
+        src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1400&auto=format&fit=crop&q=80"
+        alt="대학 캠퍼스"
+        class="hero-img"
+      />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-tag">오늘의 공강</p>
+      <h1 class="hero-title">공강을<br><span class="accent-red">알차게</span><br>보내세요</h1>
+      <p class="hero-sub">지금 당장 할 수 있는 것들을 찾아드립니다</p>
+      <a href="#cards" class="cta-btn">시작하기 →</a>
+    </div>
   </section>
 
-  <main class="cards">
+  <!-- CARDS -->
+  <main class="cards-section" id="cards">
+    <div class="section-label">지금 바로</div>
+    <h2 class="section-title">무엇을 할까요?</h2>
 
-    <div class="card clickable" id="liberary-card">
-      <h2>도서관 자리 추천</h2>
-      <p>남은 도서관 자리를 보여드립니다</p>
-    </div>
+    <div class="cards">
 
-    <div class="card clickable" id="chat-card">
-      <h2>랜덤채팅</h2>
-      <p>공강시간에 랜덤 채팅 즐기기</p>
-    </div>
+      <!-- 도서관 -->
+      <div class="card clickable" id="liberary-card">
+        <div class="card-img-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&auto=format&fit=crop&q=80"
+            alt="도서관"
+            class="card-img"
+          />
+        </div>
+        <div class="card-body">
+          <div class="card-icon">📚</div>
+          <h3>도서관 자리 추천</h3>
+          <p>실시간 남은 자리를 확인하고<br>최적의 자리를 찾아보세요</p>
+          <span class="card-link">바로가기 →</span>
+        </div>
+      </div>
 
-    <div class="card">
-      <h2>주변 추천 장소</h2>
-      <p>공강시간에 가기 좋은 장소 추천</p>
+      <!-- 랜덤채팅 -->
+      <div class="card clickable" id="chat-card">
+        <div class="card-img-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&auto=format&fit=crop&q=80"
+            alt="채팅"
+            class="card-img"
+          />
+        </div>
+        <div class="card-body">
+          <div class="card-icon">💬</div>
+          <h3>랜덤 채팅</h3>
+          <p>같은 공강 시간대 친구를<br>새로 만나보세요</p>
+          <span class="card-link">바로가기 →</span>
+        </div>
+      </div>
+
+      <!-- 주변 장소 -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&auto=format&fit=crop&q=80"
+            alt="카페"
+            class="card-img"
+          />
+        </div>
+        <div class="card-body">
+          <div class="card-icon">📍</div>
+          <h3>주변 추천 장소</h3>
+          <p>공강 시간에 가기 좋은<br>장소를 추천해드려요</p>
+          <span class="card-link coming">준비 중</span>
+        </div>
+      </div>
+
     </div>
   </main>
-  <section class="congestion">
-  <h2>📊 혼잡도 안내</h2>
-  <div class="congestion-item">
-    <span>학식당</span>
-    <span class="level low">여유 있음</span>
-  </div>
-  <div class="congestion-item">
-    <span>도서관</span>
-    <span class="level medium">보통</span>
-  </div>
-  <div class="congestion-item">
-    <span>카페</span>
-    <span class="level high">혼잡</span>
-  </div>
 
-  <!-- 인원수 안내 추가 -->
-  <div class="congestion-count">
-    <span>지금 학교에서 시간을 보내고 있을 것으로 예측되는 인원수</span>
-    <span class="number">00명</span>
-  </div>
-</section>
+  <!-- 혼잡도 -->
+  <section class="congestion-section">
+    <div class="section-label">실시간 현황</div>
+    <h2 class="section-title">지금 학교 혼잡도</h2>
+
+    <div class="congestion-grid">
+
+      <div class="cong-card">
+        <div class="cong-place">
+          <img src="https://images.unsplash.com/photo-1567521464027-f127ff144326?w=200&auto=format&fit=crop&q=80" alt="학식당" class="cong-img"/>
+          <div>
+            <div class="cong-name">🍽 학식당</div>
+            <div class="cong-desc">1층 중앙식당</div>
+          </div>
+        </div>
+        <div class="cong-bar-wrap">
+          <div class="cong-bar low" style="width: 35%"></div>
+        </div>
+        <div class="cong-status">
+          <span class="level low">여유 있음</span>
+          <span class="cong-pct">35%</span>
+        </div>
+      </div>
+
+      <div class="cong-card">
+        <div class="cong-place">
+          <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=200&auto=format&fit=crop&q=80" alt="도서관" class="cong-img"/>
+          <div>
+            <div class="cong-name">📖 도서관</div>
+            <div class="cong-desc">중앙 열람실</div>
+          </div>
+        </div>
+        <div class="cong-bar-wrap">
+          <div class="cong-bar medium" style="width: 60%"></div>
+        </div>
+        <div class="cong-status">
+          <span class="level medium">보통</span>
+          <span class="cong-pct">60%</span>
+        </div>
+      </div>
+
+      <div class="cong-card">
+        <div class="cong-place">
+          <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=200&auto=format&fit=crop&q=80" alt="카페" class="cong-img"/>
+          <div>
+            <div class="cong-name">☕ 카페</div>
+            <div class="cong-desc">학생회관 카페</div>
+          </div>
+        </div>
+        <div class="cong-bar-wrap">
+          <div class="cong-bar high" style="width: 88%"></div>
+        </div>
+        <div class="cong-status">
+          <span class="level high">혼잡</span>
+          <span class="cong-pct">88%</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 예측 인원 -->
+    <div class="predict-box">
+      <div class="predict-left">
+        <div class="predict-label">지금 학교에서 시간을 보내고 있을 것으로 예측되는 인원</div>
+      </div>
+      <div class="predict-number" id="predictedCount">—</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <p>© 2026 공강 녹이기</p>
+    <div class="footer-inner">
+      <div class="footer-logo">공강<span class="accent-red">녹이기</span></div>
+      <p class="footer-copy">© 2026 공강 녹이기 · 2023100973 서승준</p>
+      <div class="footer-links">
+        <a href="#">이용약관</a>
+        <a href="#">개인정보처리방침</a>
+        <a href="#">문의</a>
+      </div>
+    </div>
   </footer>
 
   <script src="index.js"></script>
