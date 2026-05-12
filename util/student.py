@@ -45,18 +45,21 @@ def main():
                 # second-line 안의 course-num, course-time
                 num_els = item.find_elements(By.CSS_SELECTOR, ".second-line .course-num")
                 time_els = item.find_elements(By.CSS_SELECTOR, ".second-line .course-time")
+                part_els = item.find_elements(By.CSS_SELECTOR, ".second-line .course-depart")
 
                 # 데이터가 존재할 경우에만 텍스트 추출
                 name = name_els[0].text.strip() if name_els else "N/A"
                 num = num_els[0].text.strip().replace("강좌번호:", "").strip() if num_els else "N/A"
                 ctime = time_els[0].text.strip() if time_els else "N/A"
+                cpart = part_els[0].text.strip() if part_els else "N/A"
 
                 # 중복되지 않은 강좌번호만 리스트에 추가
                 if num != "N/A" and num not in seen_nums:
                     extracted_data.append({
                         "강의명": name,
                         "강좌번호": num,
-                        "시간": ctime
+                        "시간": ctime,
+                        "전공": cpart
                     })
                     seen_nums.add(num)
                     
