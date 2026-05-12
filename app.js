@@ -3,6 +3,13 @@ const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const { userDB, seatDB } = require('./db');
+const multer = require('multer');
+const fs = require('fs');
+const path = require('path');
+const uploadDir = path.join(__dirname, 'img');
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir);
+}
 
 // 메인 UI
 app.use(express.static('public'));
@@ -15,6 +22,34 @@ let seats = Array.from({ length: 187 }, (_, i) => ({
   id: 1+i,
   occupied: false
 }));
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir);
+}
+
+// multer 저장 설정
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, uploadDir);
+  },
+  filename: (req, file, cb) => {
+    const savePath = path.join(uploadDir, 'seat.jpg');
+    if (fs.existsSync(savePath)) {
+      return cb(new Error('기존요청이 처리중입니다.'));
+    }
+    cb(null, 'seat.jpg');
+  }
+});
+
+const upload = multer({ storage });
+
+app.post('/upload', upload.single('file'), (req, res) => {
+  res.send('파일 업로드 성공');
+});
+
+// 에러 처리
+app.use((err, req, res, next) => {
+  res.status(400).send(err.message);
+});
 function buildSeatLayout(rows) {
   const clusters = {};
   rows.forEach(r => {

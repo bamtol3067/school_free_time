@@ -23,21 +23,13 @@ userDB.serialize(() => {
 seatDB.serialize(() => {
   seatDB.run(`CREATE TABLE IF NOT EXISTS seats (
     id INTEGER PRIMARY KEY,
-    cluster TEXT,
-    type TEXT,
     occupied INTEGER,
     posX INTEGER,
     posY INTEGER
   )`);
   //init data
-  seatDB.run(`INSERT OR IGNORE INTO seats (id, cluster, type, occupied, posX, posY)
-              VALUES (1, 'C1', 'circle', 0, 120, 80)`);
-  seatDB.run(`INSERT OR IGNORE INTO seats (id, cluster, type, occupied, posX, posY)
-              VALUES (2, 'C1', 'circle', 0, 160, 100)`);
-  seatDB.run(`INSERT OR IGNORE INTO seats (id, cluster, type, occupied, posX, posY)
-              VALUES (3, 'R1', 'row', 0, 300, 200)`);
-  seatDB.run(`INSERT OR IGNORE INTO seats (id, cluster, type, occupied, posX, posY)
-              VALUES (4, 'R1', 'row', 0, 340, 200)`);
+  seatDB.run(`INSERT OR IGNORE INTO seats (id, occupied, posX, posY)
+              VALUES (1, 0, 120, 80)`);
 });
 
 module.exports = { userDB, seatDB };

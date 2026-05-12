@@ -8,7 +8,10 @@
 <body>
   <h1>좌석 현황 관리</h1>
   <div id="seat-map"></div>
-
+  <form id="uploadForm" enctype="multipart/form-data" method="post" action="/upload">
+    <input type="file" name="file" accept="image/*" required>
+    <button type="submit">업로드</button>
+  </form>
   <script src="/socket.io/socket.io.js"></script>
   <script src="index.js"></script>
 </body>

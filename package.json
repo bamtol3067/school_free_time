@@ -21,6 +21,9 @@
   "homepage": "https://github.com/thindan990/school_free_time#readme",
   "dependencies": {
     "express": "^5.2.1",
+    "fs": "^0.0.1-security",
+    "multer": "^2.1.1",
+    "path": "^0.12.7",
     "socket.io": "^4.8.3",
     "sqlite3": "^6.0.1"
   }

@@ -16,8 +16,10 @@ socket.on('seatsUpdated', (seatLayout) => {
       div.textContent = seat.id;
 
       // 좌표 기반 배치
-      div.style.left = seat.posX + 'px';
-      div.style.top = seat.posY + 'px';
+      const TiltingX=-50;
+      const TiltingY=-350;
+      div.style.left = seat.posX+TiltingX + 'px';
+      div.style.top = seat.posY+TiltingY + 'px';
 
       // 클릭 시 occupied 상태 토글
       div.addEventListener('click', () => {
