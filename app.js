@@ -10,6 +10,7 @@ const uploadDir = path.join(__dirname, 'img');
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir);
 }
+const port = process.env.PORT || 3000;
 
 // 메인 UI
 app.use(express.static('public'));
@@ -135,6 +136,6 @@ io.on('connection', (socket) => {
     });
 });
 
-http.listen(3000, () => {
-    console.log('서버 실행 중: http://localhost:3000');
+http.listen(port, () => {
+    console.log('서버 실행 중: http://localhost');
 });
