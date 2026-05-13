@@ -1,0 +1,37 @@
+name: Express Server Health Check
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 코드 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Node.js 환경 설정
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: 의존성 설치
+        run: npm install
+
+      - name: 서버 구동 테스트
+        run: |
+          # 서버를 백그라운드(&)에서 실행
+          node app.js &
+          
+          # 서버가 기동될 시간을 잠시 대기 (예: 10초)
+          sleep 10
+          
+          # 프로세스가 살아있는지 확인 (죽었다면 여기서 에러 발생)
+          kill -0 $! 
+          
+          echo "서버가 정상적으로 구동되었습니다."
