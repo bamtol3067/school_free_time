@@ -26,16 +26,6 @@ CORS(app)  # Node.js에서 fetch 요청 시 CORS 오류 방지
 
 import os
 
-# recommend.py 위치를 기준으로 seats.sqlite 경로를 자동 계산합니다.
-# 덕분에 로컬(Windows), 배포 서버(Linux) 어디서든 경로 수정 없이 동작합니다.
-#
-# 폴더 구조 (recommend.py는 seats.sqlite와 같은 폴더에 두세요):
-#   school_free_time/
-#     ├── seats.sqlite   ← DB
-#     ├── recommend.py   ← 이 파일
-#     └── lib/
-#         ├── index.html
-#         └── index.js
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # 이 파일이 있는 폴더
 DB_PATH  = os.path.join(BASE_DIR, "seats.sqlite")      # 같은 폴더의 seats.sqlite
 
