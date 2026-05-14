@@ -19,11 +19,6 @@ node -v
 python --version
 ```
 
-### 도서관 추천 서비스를 위한 설치
-```
-pip install flask flask-cors
-```
-
 ---
 
 ## 2. 코드 다운로드
@@ -43,7 +38,7 @@ cd school_free_time
 ## 4. 패키지 설치
 ```
 npm install
-pip install opencv-python numpy
+pip install opencv-python numpy flask flask-cors
 ```
 
 ---
